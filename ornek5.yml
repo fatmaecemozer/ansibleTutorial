@@ -1,0 +1,12 @@
+- name: add_users
+  hosts: servers
+  become: yes
+  become_method: sudo
+  tasks: 
+  - name: add_all_users_in_loop
+    user: 
+      name: '{{ item }}'
+    loop:
+    - zurafa
+    - tilki
+    - sincap

@@ -1,0 +1,9 @@
+- name: add_new_user
+  hosts: servers
+  become: yes
+  become_method: sudo 
+  tasks: 
+  - name: add_user_userdemo
+    user: 
+      name: userdemo
+      state: present 

@@ -1,0 +1,9 @@
+- name: install_wget
+  hosts: servers
+  become: true
+  become_method: sudo
+  tasks: 
+  - name: install_wget_on_ubuntu
+    apt: name=wget state=latest
+  - name: instal_wget_on_centos
+    yum: name=wget state=latest

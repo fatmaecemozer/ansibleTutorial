@@ -1,0 +1,10 @@
+- name: delete_user
+  hosts: servers
+  become: yes
+  become_method: sudo 
+  tasks:
+  - name: delete_userdemo
+    user: 
+      name: userdemo
+      state: absent 
+      remove: yes 

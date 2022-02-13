@@ -1,0 +1,14 @@
+- name: delete_users
+  hosts: servers
+  become: yes
+  become_method: sudo
+  tasks: 
+  - name: delete_all_users_in_loop
+    user: 
+      name: '{{ item }}'
+      state: absent 
+      remove: yes
+    loop:
+    - zurafa
+    - tilki
+    - sincap

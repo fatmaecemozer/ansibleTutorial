@@ -1,0 +1,13 @@
+- name: wget_install
+  hosts: servers
+  become: true
+  become_method: sudo
+  tasks:
+  - name: install_wget_for_centos
+    yum: name=wget state=latest
+    when: ansible_os_family == "RedHat"
+  - name: install_wget_for_ubuntu
+    apt: name=wget state=latest
+    when: ansible_os_family == "Debian"
+  - name: check_wget_version
+    shell: "wget --version"
